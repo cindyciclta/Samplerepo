@@ -1,0 +1,1 @@
+1 IF YY [ ( 10 + ( TZ - YM [10 ]) )] =  ( ( BB + CC) * LONGVAR [ ( 9 + TI) ]) THEN 634

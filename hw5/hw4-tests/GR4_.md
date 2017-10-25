@@ -1,0 +1,2 @@
+| Test Input | Score | 
+|:--|:-:|  

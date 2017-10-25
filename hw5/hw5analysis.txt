@@ -1,0 +1,72 @@
+Cindy Clarissa
+Hw5 Analysis
+
+1.Analyze the running time for figuring out which line a GOTO, GOSUB, IF jumps to. (That is, going from having the line number to actually knowing what command is on that line.) You can analyze them together if they take the same amount of time; otherwise, explain and analyze the differences. For the analysis of IF, you can exclude the part of figuring out if the Boolean Expression is true.
+
+Background & more:
+In my implementation, I start analysising the parsed inputs in my In.cpp (short 
+for Interpreter.cpp). At line 32 of In.cpp it calls my function 
+"executeCurrentLine(programCounter,it)" (constant runtime). It will then call 
+"execute(..)" on line 80 where it will 'look up' the value in my map, in this 
+case the line number is my key and Command* will be the value, and then it will
+ 'execute(..)'. 
+
+Looking up in a map will take O(Log(n)) and executing the line at line 80 has 
+all the same run time for GOTO, GOSUB and IF statements.
+
+To be specific:
+For Goto (execute function): On line 295-302 of Command.cpp is where it starts to find out what line it will be going to. I call *Command.find(_toline) on line 295 that takes O(logn) since the 'find()' for maps takes that long. If 
+
+Gosub (execute function): On line 311-320 of Command.cpp. I pushed the current 
+line I am on into my stack which takes constant time. Then I look in my map to 
+'find()' the line I am going to-- this takes O(logn).
+It will return the line where I am going to. 
+
+IF function: on line 174-190 of Command.cpp it has the same implementation of 
+Goto and Gosub and it will have O(logn) as well.
+
+Overall it will take O(logn) time.
+
+2.Analyze the running time for figuring out the command that a RETURN jumps to.
+ That is, how long does it take to go from seeing RETURN until you know the 
+ command to go to.
+
+My Return execution is at line 323-357 of Command.cpp. First it will figure out
+if the stack is not empty which takes constant time. If its not empty(), then it
+ will save the most recent line into variable 'temp' on line 335 (constant 
+ time). 
+
+Afterwards, it will pop() that line off the stack (it also constant time). I 
+then use the .find() on my commamdMap on line 339 to make sure my iterator is 
+now at the line I saved in my temp variable at line 335 (it O(logn) time). I 
+then want to go to the next line of that line so I increase my iterator at line 
+341 (it is constant time). 
+It will then go into the if block at line 342 to find whether or not that line 
+exists in my map.(the process to find if that line exist takes O(logn) time); 
+If it exists, it will return that new linenumber it will jump to (it is constant
+ time). 
+
+Overall it will take O(logn) time. 
+
+
+3.Analyze the running time for figuring out the value of a variable or overwriting the value of a variable.
+
+To figure out the value of the variable, I use a map<string,int>VarMap to store
+all the variables and it's value.
+
+On line 201-239 of Command.cpp, there is a great example of what I did.
+To find out the value of a variable it is O(logn). To store a value into 
+a variable, it will also take O(log n).
+
+
+
+4.Analyze the running time for figuring out the value of an array entry, assuming you have already figured out the numerical value of the index. (That is, you have already calculated <AEXP> in VAR [<AEXP>].)
+
+I use a map<string var, map<int index,int value>> to store my values in the 
+array.
+
+To figure out the value of an array entry (example in line 382 to 387 in 
+Command.cpp), first I need to find out the name of the variable I am looking at,
+ this takes constant time. Once I compile everything I need to know to look up 
+ my array value it will take 2Logn since its a map within a map but the big-O 
+ will be O(logn)

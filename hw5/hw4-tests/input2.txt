@@ -1,0 +1,17 @@
+1 LET X ( 1 + X[20] )
+1 PRINT  ((X+Y)-(X[10]*Y[(10/ZZZ[3])]))
+1 LET X Y [ Z [ 20 ]]
+1 LET X ( Z -    Y [ ( A + B)])
+1 LET X Y[ (  A [  20   ] + B [ ( N + M )])]
+1 LET LONGVAR  ( X [ ( ( Y[ (3 + 4)] + Y[ Z[ (2 + 3)  ] ] ) + A [ ( B + C) ]  ) ] + STH )
+1 LET X [ ( 2 +  ( A / B[20]) )] 2
+1 LET X [ ( B [ ( 20 + 2)] +  ( A - B[ 20]) )]  2
+1 LET X [ ( 2 +  ( A / B[20]) )] ( 2 +  ( A / B[20]) )
+1 LET A[(20+B[10])] (A[(20+B[10])]+A[(20+B[10])])  
+1 LET XY [ NP [ ( 22 * YZ [ ( A - BD)] ) ] ]  ( AA[(20 / BB[10])] + BBY[ ( ZT[20] + (303  +5))])
+1 IF ( X + Y [ 10 ]) = ( Z [ 9 ] + A ) THEN 2
+1 IF X [ ( A  + B )] < Y [ ( 1 + 2)] THEN 32
+1 IF ( X + Y [ ( 10 + Z )]) =  ( 10 + Z [ ( 8 + 9) ]) THEN 63
+1 IF Y [ ( 10 + ( Z + Y [10 ]) )] =  Z [ ( 10 + Z [ 9 ])] THEN 63
+1 IF Y[(10+(Z-Y[10]))]>((B+C)*Z[(9 +TI)]) THEN 63
+1 IF YY [ ( 10 + ( TZ - YM [10 ]) )] =  ( ( BB + CC) * LONGVAR [ ( 9 + TI) ]) THEN 634
